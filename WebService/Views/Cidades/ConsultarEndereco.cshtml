@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebService.Models.Cidade>
+
+@{
+    ViewData["Title"] = "ConsultarEndereco";
+}
+
+<h2>ConsultarEndereco</h2>
+
+<p>
+    <a asp-action="ConsultarEndereco">CConsultar Endereço</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Complemento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Logradouro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Complemento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                 |
+                <a asp-action="Delete" asp-route-id="@item.CidadeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
